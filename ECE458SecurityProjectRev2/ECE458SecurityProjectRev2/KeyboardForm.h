@@ -82,7 +82,17 @@ namespace ECE458SecurityProjectRev2 {
 		/// </summary>
 		System::ComponentModel::Container ^components;
 		bool shiftOn;
-		bool capsLockOn;
+	private: System::Windows::Forms::Button^  vKey1;
+	private: System::Windows::Forms::Button^  vKey2;
+	private: System::Windows::Forms::Button^  vKey3;
+	private: System::Windows::Forms::Button^  vKey4;
+	private: System::Windows::Forms::Button^  vKey5;
+	private: System::Windows::Forms::Button^  vKey6;
+	private: System::Windows::Forms::Button^  vKey7;
+	private: System::Windows::Forms::Button^  vKey8;
+	private: System::Windows::Forms::Button^  vKey9;
+	private: System::Windows::Forms::Button^  vKey0;
+			 bool capsLockOn;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -127,6 +137,16 @@ namespace ECE458SecurityProjectRev2 {
 			this->vKeyShiftR = (gcnew System::Windows::Forms::Button());
 			this->vKeyEnter = (gcnew System::Windows::Forms::Button());
 			this->vKeyBackspace = (gcnew System::Windows::Forms::Button());
+			this->vKey1 = (gcnew System::Windows::Forms::Button());
+			this->vKey2 = (gcnew System::Windows::Forms::Button());
+			this->vKey3 = (gcnew System::Windows::Forms::Button());
+			this->vKey4 = (gcnew System::Windows::Forms::Button());
+			this->vKey5 = (gcnew System::Windows::Forms::Button());
+			this->vKey6 = (gcnew System::Windows::Forms::Button());
+			this->vKey7 = (gcnew System::Windows::Forms::Button());
+			this->vKey8 = (gcnew System::Windows::Forms::Button());
+			this->vKey9 = (gcnew System::Windows::Forms::Button());
+			this->vKey0 = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// vKeySpace
@@ -488,11 +508,121 @@ namespace ECE458SecurityProjectRev2 {
 			this->vKeyBackspace->UseVisualStyleBackColor = true;
 			this->vKeyBackspace->Click += gcnew System::EventHandler(this, &KeyboardForm::vKeyBackspace_Click);
 			// 
+			// vKey1
+			// 
+			this->vKey1->Location = System::Drawing::Point(106, 76);
+			this->vKey1->Name = L"vKey1";
+			this->vKey1->Size = System::Drawing::Size(50, 50);
+			this->vKey1->TabIndex = 67;
+			this->vKey1->Text = L"!\r\n1";
+			this->vKey1->UseVisualStyleBackColor = true;
+			this->vKey1->Click += gcnew System::EventHandler(this, &KeyboardForm::vKey1_Click);
+			// 
+			// vKey2
+			// 
+			this->vKey2->Location = System::Drawing::Point(162, 76);
+			this->vKey2->Name = L"vKey2";
+			this->vKey2->Size = System::Drawing::Size(50, 50);
+			this->vKey2->TabIndex = 68;
+			this->vKey2->Text = L"@\r\n2";
+			this->vKey2->UseVisualStyleBackColor = true;
+			this->vKey2->Click += gcnew System::EventHandler(this, &KeyboardForm::vKey2_Click);
+			// 
+			// vKey3
+			// 
+			this->vKey3->Location = System::Drawing::Point(218, 76);
+			this->vKey3->Name = L"vKey3";
+			this->vKey3->Size = System::Drawing::Size(50, 50);
+			this->vKey3->TabIndex = 69;
+			this->vKey3->Text = L"#\r\n3";
+			this->vKey3->UseVisualStyleBackColor = true;
+			this->vKey3->Click += gcnew System::EventHandler(this, &KeyboardForm::vKey3_Click);
+			// 
+			// vKey4
+			// 
+			this->vKey4->Location = System::Drawing::Point(274, 76);
+			this->vKey4->Name = L"vKey4";
+			this->vKey4->Size = System::Drawing::Size(50, 50);
+			this->vKey4->TabIndex = 70;
+			this->vKey4->Text = L"$\r\n4";
+			this->vKey4->UseVisualStyleBackColor = true;
+			this->vKey4->Click += gcnew System::EventHandler(this, &KeyboardForm::vKey4_Click);
+			// 
+			// vKey5
+			// 
+			this->vKey5->Location = System::Drawing::Point(330, 76);
+			this->vKey5->Name = L"vKey5";
+			this->vKey5->Size = System::Drawing::Size(50, 50);
+			this->vKey5->TabIndex = 71;
+			this->vKey5->Text = L"%\r\n5";
+			this->vKey5->UseVisualStyleBackColor = true;
+			this->vKey5->Click += gcnew System::EventHandler(this, &KeyboardForm::vKey5_Click);
+			// 
+			// vKey6
+			// 
+			this->vKey6->Location = System::Drawing::Point(386, 76);
+			this->vKey6->Name = L"vKey6";
+			this->vKey6->Size = System::Drawing::Size(50, 50);
+			this->vKey6->TabIndex = 72;
+			this->vKey6->Text = L"^\r\n6";
+			this->vKey6->UseVisualStyleBackColor = true;
+			this->vKey6->Click += gcnew System::EventHandler(this, &KeyboardForm::vKey6_Click);
+			// 
+			// vKey7
+			// 
+			this->vKey7->Location = System::Drawing::Point(442, 76);
+			this->vKey7->Name = L"vKey7";
+			this->vKey7->Size = System::Drawing::Size(50, 50);
+			this->vKey7->TabIndex = 73;
+			this->vKey7->Text = L"&&\r\n7";
+			this->vKey7->UseVisualStyleBackColor = true;
+			this->vKey7->Click += gcnew System::EventHandler(this, &KeyboardForm::vKey7_Click);
+			// 
+			// vKey8
+			// 
+			this->vKey8->Location = System::Drawing::Point(498, 76);
+			this->vKey8->Name = L"vKey8";
+			this->vKey8->Size = System::Drawing::Size(50, 50);
+			this->vKey8->TabIndex = 74;
+			this->vKey8->Text = L"*\r\n8";
+			this->vKey8->UseVisualStyleBackColor = true;
+			this->vKey8->Click += gcnew System::EventHandler(this, &KeyboardForm::vKey8_Click);
+			// 
+			// vKey9
+			// 
+			this->vKey9->Location = System::Drawing::Point(554, 76);
+			this->vKey9->Name = L"vKey9";
+			this->vKey9->Size = System::Drawing::Size(50, 50);
+			this->vKey9->TabIndex = 75;
+			this->vKey9->Text = L"(\r\n9";
+			this->vKey9->UseVisualStyleBackColor = true;
+			this->vKey9->Click += gcnew System::EventHandler(this, &KeyboardForm::vKey9_Click);
+			// 
+			// vKey0
+			// 
+			this->vKey0->Location = System::Drawing::Point(610, 76);
+			this->vKey0->Name = L"vKey0";
+			this->vKey0->Size = System::Drawing::Size(50, 50);
+			this->vKey0->TabIndex = 76;
+			this->vKey0->Text = L")\r\n0";
+			this->vKey0->UseVisualStyleBackColor = true;
+			this->vKey0->Click += gcnew System::EventHandler(this, &KeyboardForm::vKey0_Click);
+			// 
 			// KeyboardForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(784, 362);
+			this->Controls->Add(this->vKey0);
+			this->Controls->Add(this->vKey9);
+			this->Controls->Add(this->vKey8);
+			this->Controls->Add(this->vKey7);
+			this->Controls->Add(this->vKey6);
+			this->Controls->Add(this->vKey5);
+			this->Controls->Add(this->vKey4);
+			this->Controls->Add(this->vKey3);
+			this->Controls->Add(this->vKey2);
+			this->Controls->Add(this->vKey1);
 			this->Controls->Add(this->vKeyBackspace);
 			this->Controls->Add(this->vKeyEnter);
 			this->Controls->Add(this->vKeyShiftR);
@@ -540,14 +670,44 @@ namespace ECE458SecurityProjectRev2 {
 				 Button^ toGet = safe_cast<Button ^>(sender);
 				 AppendLetterToTextbox(toGet -> Text -> ToLower());
 		 }
+	private: System::Void vKey1_Click(System::Object^  sender, System::EventArgs^  e) {
+			 AppendNumberSymbolToTextbox('!','1');
+	}
+	private: System::Void vKey2_Click(System::Object^  sender, System::EventArgs^  e) {
+			 AppendNumberSymbolToTextbox('@','2');
+	}
+	private: System::Void vKey3_Click(System::Object^  sender, System::EventArgs^  e) {
+			 AppendNumberSymbolToTextbox('#','3');
+	}
+	private: System::Void vKey4_Click(System::Object^  sender, System::EventArgs^  e) {
+			 AppendNumberSymbolToTextbox('$','4');
+	}
+	private: System::Void vKey5_Click(System::Object^  sender, System::EventArgs^  e) {
+			 AppendNumberSymbolToTextbox('%','5');
+	}
+	private: System::Void vKey6_Click(System::Object^  sender, System::EventArgs^  e) {
+			 AppendNumberSymbolToTextbox('^','6');
+	}
+	private: System::Void vKey7_Click(System::Object^  sender, System::EventArgs^  e) {
+			 AppendNumberSymbolToTextbox('&','7');
+	}
+	private: System::Void vKey8_Click(System::Object^  sender, System::EventArgs^  e) {
+			 AppendNumberSymbolToTextbox('*','8');
+	}
+	private: System::Void vKey9_Click(System::Object^  sender, System::EventArgs^  e) {
+			 AppendNumberSymbolToTextbox('(','9');
+	}
+	private: System::Void vKey0_Click(System::Object^  sender, System::EventArgs^  e) {
+			 AppendNumberSymbolToTextbox(')','0');
+	}
 	private: System::Void vKeyComma_Click(System::Object^  sender, System::EventArgs^  e) {
-				 inputBox -> AppendText(",");
+				 AppendNumberSymbolToTextbox('<',',');
 		 }
 	private: System::Void vKeyPeriod_Click(System::Object^  sender, System::EventArgs^  e) {
-				 inputBox -> AppendText(".");
+				 AppendNumberSymbolToTextbox('>','.');
 		 }
 	private: System::Void vKeySlash_Click(System::Object^  sender, System::EventArgs^  e) {
-				 inputBox -> AppendText("/");
+				 AppendNumberSymbolToTextbox('?','/');
 		 }
 	private: System::Void vKeySpace_Click(System::Object^  sender, System::EventArgs^  e) {
 				 inputBox -> AppendText(" ");
@@ -600,6 +760,16 @@ namespace ECE458SecurityProjectRev2 {
 					UpdateKeyAppearances();
 				}
 				inputBox -> AppendText(characterToAppend);
+	}
+	private: System::Void AppendNumberSymbolToTextbox(char upperToAppend, char lowerToAppend) {
+			 if (shiftOn) {
+				 shiftOn = false;
+				 UpdateKeyAppearances();
+				 inputBox -> AppendText(gcnew String(upperToAppend, 1));
+			 }
+			 else {
+				 inputBox -> AppendText(gcnew String(lowerToAppend, 1));
+			 }
 	}
 	private: System::Void vKeyEnter_Click(System::Object^  sender, System::EventArgs^  e) {
 			//return textbox text and close form.
