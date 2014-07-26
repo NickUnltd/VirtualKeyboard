@@ -155,3 +155,12 @@ System::Void KeyboardForm::vKeyEnter_Click(System::Object^  sender, System::Even
 	this->DialogResult = System::Windows::Forms::DialogResult::OK;
 	this->Close();
 }
+
+String^ KeyboardForm::LaunchVirtualKeyboard() {
+	KeyboardForm^ keyboard = gcnew KeyboardForm();
+	keyboard->ShowDialog();
+
+	if (keyboard->DialogResult == System::Windows::Forms::DialogResult::OK) {
+		return keyboard->getReturnString();
+	}
+}

@@ -14,12 +14,7 @@ void main(array<String^>^ args) {
 }
 
 System::Void MainForm::passField_MouseClick(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {
-	KeyboardForm^ keyboard = gcnew KeyboardForm();
-	keyboard->ShowDialog();
-
-	if (keyboard->DialogResult == System::Windows::Forms::DialogResult::OK) {
-		passField->Text = keyboard->getReturnString();
-	}
+	passField->Text = KeyboardForm::LaunchVirtualKeyboard();
 }
 
 System::Void MainForm::togglePass_MouseClick(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {

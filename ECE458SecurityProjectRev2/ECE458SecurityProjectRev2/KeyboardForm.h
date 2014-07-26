@@ -812,6 +812,7 @@ namespace ECE458SecurityProjectRev2 {
 
 	public:
 		String^ getReturnString();
+		static String^ LaunchVirtualKeyboard();
 	};
 }
 
