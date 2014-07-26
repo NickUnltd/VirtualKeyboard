@@ -15,6 +15,26 @@ namespace ECE458SecurityProjectRev2 {
 	using namespace System::Data;
 	using namespace System::Drawing;
 
+	ref class FocuslessButton : Button {
+	protected:
+		bool ShowFocusCues() override{
+			this->SetStyle(ControlStyles::Selectable, false);
+			return false;
+		}
+
+	public:
+		FocuslessButton(void) {
+			this->SetStyle(ControlStyles::Selectable, false);
+			this->UseVisualStyleBackColor = false;
+			this->BackColor = System::Drawing::SystemColors::Control;
+			this->FlatAppearance->BorderColor = System::Drawing::Color::Black;
+			this->FlatAppearance->CheckedBackColor = System::Drawing::Color::White;
+			this->FlatAppearance->MouseDownBackColor = System::Drawing::SystemColors::Control;
+			this->FlatAppearance->MouseOverBackColor = System::Drawing::SystemColors::Control;
+			this->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+		}
+	};
+
 	/// <summary>
 	/// Summary for KeyboardForm
 	/// </summary>
@@ -48,43 +68,43 @@ namespace ECE458SecurityProjectRev2 {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::Button^  vKeySpace;
-	protected: 
-	private: System::Windows::Forms::Button^  vKeySlash;
-	private: System::Windows::Forms::Button^  vKeyPeriod;
-	private: System::Windows::Forms::Button^  vKeyComma;
-	private: System::Windows::Forms::Button^  vKeyM;
-	private: System::Windows::Forms::Button^  vKeyN;
-	private: System::Windows::Forms::Button^  vKeyB;
-	private: System::Windows::Forms::Button^  vKeyV;
-	private: System::Windows::Forms::Button^  vKeyC;
-	private: System::Windows::Forms::Button^  vKeyX;
-	private: System::Windows::Forms::Button^  vKeyZ;
-	private: System::Windows::Forms::Button^  vKeyL;
-	private: System::Windows::Forms::Button^  vKeyK;
-	private: System::Windows::Forms::Button^  vKeyJ;
-	private: System::Windows::Forms::Button^  vKeyH;
-	private: System::Windows::Forms::Button^  vKeyG;
-	private: System::Windows::Forms::Button^  vKeyF;
-	private: System::Windows::Forms::Button^  vKeyD;
-	private: System::Windows::Forms::Button^  vKeyS;
-	private: System::Windows::Forms::Button^  vKeyA;
-	private: System::Windows::Forms::Button^  vKeyP;
-	private: System::Windows::Forms::Button^  vKeyO;
-	private: System::Windows::Forms::Button^  vKeyI;
-	private: System::Windows::Forms::Button^  vKeyU;
-	private: System::Windows::Forms::Button^  vKeyY;
-	private: System::Windows::Forms::Button^  vKeyT;
-	private: System::Windows::Forms::Button^  vKeyR;
-	private: System::Windows::Forms::Button^  vKeyE;
-	private: System::Windows::Forms::Button^  vKeyW;
-	private: System::Windows::Forms::Button^  vKeyQ;
-	private: System::Windows::Forms::TextBox^  inputBox;
-	private: System::Windows::Forms::Button^  vKeyShiftL;
-	private: System::Windows::Forms::Button^  vKeyCaps;
-	private: System::Windows::Forms::Button^  vKeyShiftR;
-	private: System::Windows::Forms::Button^  vKeyEnter;
-	private: System::Windows::Forms::Button^  vKeyBackspace;
+	private: 
+		FocuslessButton^  vKeySpace;
+		FocuslessButton^  vKeySlash;
+		FocuslessButton^  vKeyPeriod;
+		FocuslessButton^  vKeyComma;
+		FocuslessButton^  vKeyM;
+		FocuslessButton^  vKeyN;
+		FocuslessButton^  vKeyB;
+		FocuslessButton^  vKeyV;
+		FocuslessButton^  vKeyC;
+		FocuslessButton^  vKeyX;
+		FocuslessButton^  vKeyZ;
+		FocuslessButton^  vKeyL;
+		FocuslessButton^  vKeyK;
+		FocuslessButton^  vKeyJ;
+		FocuslessButton^  vKeyH;
+		FocuslessButton^  vKeyG;
+		FocuslessButton^  vKeyF;
+		FocuslessButton^  vKeyD;
+		FocuslessButton^  vKeyS;
+		FocuslessButton^  vKeyA;
+		FocuslessButton^  vKeyP;
+		FocuslessButton^  vKeyO;
+		FocuslessButton^  vKeyI;
+		FocuslessButton^  vKeyU;
+		FocuslessButton^  vKeyY;
+		FocuslessButton^  vKeyT;
+		FocuslessButton^  vKeyR;
+		FocuslessButton^  vKeyE;
+		FocuslessButton^  vKeyW;
+		FocuslessButton^  vKeyQ;
+		System::Windows::Forms::TextBox^  inputBox;
+		FocuslessButton^  vKeyShiftL;
+		FocuslessButton^  vKeyCaps;
+		FocuslessButton^  vKeyShiftR;
+		FocuslessButton^  vKeyEnter;
+		FocuslessButton^  vKeyBackspace;
 	
 	private:
 		/// <summary>
@@ -92,18 +112,19 @@ namespace ECE458SecurityProjectRev2 {
 		/// </summary>
 		System::ComponentModel::Container ^components;
 		bool shiftOn;
-	private: System::Windows::Forms::Button^  vKey1;
-	private: System::Windows::Forms::Button^  vKey2;
-	private: System::Windows::Forms::Button^  vKey3;
-	private: System::Windows::Forms::Button^  vKey4;
-	private: System::Windows::Forms::Button^  vKey5;
-	private: System::Windows::Forms::Button^  vKey6;
-	private: System::Windows::Forms::Button^  vKey7;
-	private: System::Windows::Forms::Button^  vKey8;
-	private: System::Windows::Forms::Button^  vKey9;
-	private: System::Windows::Forms::Button^  vKey0;
+		FocuslessButton^  vKey1;
+		FocuslessButton^  vKey2;
+		FocuslessButton^  vKey3;
+		FocuslessButton^  vKey4;
+		FocuslessButton^  vKey5;
+		FocuslessButton^  vKey6;
+		FocuslessButton^  vKey7;
+		FocuslessButton^  vKey8;
+		FocuslessButton^  vKey9;
+		FocuslessButton^  vKey0;
 		bool capsLockOn;
 		bool cursorShown;
+		String^ returnString;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -112,52 +133,52 @@ namespace ECE458SecurityProjectRev2 {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->vKeySpace = (gcnew System::Windows::Forms::Button());
-			this->vKeySlash = (gcnew System::Windows::Forms::Button());
-			this->vKeyPeriod = (gcnew System::Windows::Forms::Button());
-			this->vKeyComma = (gcnew System::Windows::Forms::Button());
-			this->vKeyM = (gcnew System::Windows::Forms::Button());
-			this->vKeyN = (gcnew System::Windows::Forms::Button());
-			this->vKeyB = (gcnew System::Windows::Forms::Button());
-			this->vKeyV = (gcnew System::Windows::Forms::Button());
-			this->vKeyC = (gcnew System::Windows::Forms::Button());
-			this->vKeyX = (gcnew System::Windows::Forms::Button());
-			this->vKeyZ = (gcnew System::Windows::Forms::Button());
-			this->vKeyL = (gcnew System::Windows::Forms::Button());
-			this->vKeyK = (gcnew System::Windows::Forms::Button());
-			this->vKeyJ = (gcnew System::Windows::Forms::Button());
-			this->vKeyH = (gcnew System::Windows::Forms::Button());
-			this->vKeyG = (gcnew System::Windows::Forms::Button());
-			this->vKeyF = (gcnew System::Windows::Forms::Button());
-			this->vKeyD = (gcnew System::Windows::Forms::Button());
-			this->vKeyS = (gcnew System::Windows::Forms::Button());
-			this->vKeyA = (gcnew System::Windows::Forms::Button());
-			this->vKeyP = (gcnew System::Windows::Forms::Button());
-			this->vKeyO = (gcnew System::Windows::Forms::Button());
-			this->vKeyI = (gcnew System::Windows::Forms::Button());
-			this->vKeyU = (gcnew System::Windows::Forms::Button());
-			this->vKeyY = (gcnew System::Windows::Forms::Button());
-			this->vKeyT = (gcnew System::Windows::Forms::Button());
-			this->vKeyR = (gcnew System::Windows::Forms::Button());
-			this->vKeyE = (gcnew System::Windows::Forms::Button());
-			this->vKeyW = (gcnew System::Windows::Forms::Button());
-			this->vKeyQ = (gcnew System::Windows::Forms::Button());
+			this->vKeySpace = (gcnew FocuslessButton());
+			this->vKeySlash = (gcnew FocuslessButton());
+			this->vKeyPeriod = (gcnew FocuslessButton());
+			this->vKeyComma = (gcnew FocuslessButton());
+			this->vKeyM = (gcnew FocuslessButton());
+			this->vKeyN = (gcnew FocuslessButton());
+			this->vKeyB = (gcnew FocuslessButton());
+			this->vKeyV = (gcnew FocuslessButton());
+			this->vKeyC = (gcnew FocuslessButton());
+			this->vKeyX = (gcnew FocuslessButton());
+			this->vKeyZ = (gcnew FocuslessButton());
+			this->vKeyL = (gcnew FocuslessButton());
+			this->vKeyK = (gcnew FocuslessButton());
+			this->vKeyJ = (gcnew FocuslessButton());
+			this->vKeyH = (gcnew FocuslessButton());
+			this->vKeyG = (gcnew FocuslessButton());
+			this->vKeyF = (gcnew FocuslessButton());
+			this->vKeyD = (gcnew FocuslessButton());
+			this->vKeyS = (gcnew FocuslessButton());
+			this->vKeyA = (gcnew FocuslessButton());
+			this->vKeyP = (gcnew FocuslessButton());
+			this->vKeyO = (gcnew FocuslessButton());
+			this->vKeyI = (gcnew FocuslessButton());
+			this->vKeyU = (gcnew FocuslessButton());
+			this->vKeyY = (gcnew FocuslessButton());
+			this->vKeyT = (gcnew FocuslessButton());
+			this->vKeyR = (gcnew FocuslessButton());
+			this->vKeyE = (gcnew FocuslessButton());
+			this->vKeyW = (gcnew FocuslessButton());
+			this->vKeyQ = (gcnew FocuslessButton());
 			this->inputBox = (gcnew System::Windows::Forms::TextBox());
-			this->vKeyShiftL = (gcnew System::Windows::Forms::Button());
-			this->vKeyCaps = (gcnew System::Windows::Forms::Button());
-			this->vKeyShiftR = (gcnew System::Windows::Forms::Button());
-			this->vKeyEnter = (gcnew System::Windows::Forms::Button());
-			this->vKeyBackspace = (gcnew System::Windows::Forms::Button());
-			this->vKey1 = (gcnew System::Windows::Forms::Button());
-			this->vKey2 = (gcnew System::Windows::Forms::Button());
-			this->vKey3 = (gcnew System::Windows::Forms::Button());
-			this->vKey4 = (gcnew System::Windows::Forms::Button());
-			this->vKey5 = (gcnew System::Windows::Forms::Button());
-			this->vKey6 = (gcnew System::Windows::Forms::Button());
-			this->vKey7 = (gcnew System::Windows::Forms::Button());
-			this->vKey8 = (gcnew System::Windows::Forms::Button());
-			this->vKey9 = (gcnew System::Windows::Forms::Button());
-			this->vKey0 = (gcnew System::Windows::Forms::Button());
+			this->vKeyShiftL = (gcnew FocuslessButton());
+			this->vKeyCaps = (gcnew FocuslessButton());
+			this->vKeyShiftR = (gcnew FocuslessButton());
+			this->vKeyEnter = (gcnew FocuslessButton());
+			this->vKeyBackspace = (gcnew FocuslessButton());
+			this->vKey1 = (gcnew FocuslessButton());
+			this->vKey2 = (gcnew FocuslessButton());
+			this->vKey3 = (gcnew FocuslessButton());
+			this->vKey4 = (gcnew FocuslessButton());
+			this->vKey5 = (gcnew FocuslessButton());
+			this->vKey6 = (gcnew FocuslessButton());
+			this->vKey7 = (gcnew FocuslessButton());
+			this->vKey8 = (gcnew FocuslessButton());
+			this->vKey9 = (gcnew FocuslessButton());
+			this->vKey0 = (gcnew FocuslessButton());
 			this->SuspendLayout();
 			// 
 			// vKeySpace
@@ -167,10 +188,8 @@ namespace ECE458SecurityProjectRev2 {
 			this->vKeySpace->Size = System::Drawing::Size(215, 50);
 			this->vKeySpace->TabIndex = 61;
 			this->vKeySpace->Text = L"Space";
-			this->vKeySpace->UseVisualStyleBackColor = true;
 			this->vKeySpace->Click += gcnew System::EventHandler(this, &KeyboardForm::vKeySpace_Click);
 			this->vKeySpace->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &KeyboardForm::Key_MouseDown);
-			this->vKeySpace->MouseEnter += gcnew System::EventHandler(this, &KeyboardForm::Key_MouseEnter);
 			this->vKeySpace->MouseLeave += gcnew System::EventHandler(this, &KeyboardForm::Key_MouseLeave);
 			// 
 			// vKeySlash
@@ -180,10 +199,9 @@ namespace ECE458SecurityProjectRev2 {
 			this->vKeySlash->Size = System::Drawing::Size(50, 50);
 			this->vKeySlash->TabIndex = 60;
 			this->vKeySlash->Text = L"\?\r\n/";
-			this->vKeySlash->UseVisualStyleBackColor = true;
+			
 			this->vKeySlash->Click += gcnew System::EventHandler(this, &KeyboardForm::vKeySlash_Click);
 			this->vKeySlash->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &KeyboardForm::Key_MouseDown);
-			this->vKeySlash->MouseEnter += gcnew System::EventHandler(this, &KeyboardForm::Key_MouseEnter);
 			this->vKeySlash->MouseLeave += gcnew System::EventHandler(this, &KeyboardForm::Key_MouseLeave);
 			// 
 			// vKeyPeriod
@@ -193,10 +211,9 @@ namespace ECE458SecurityProjectRev2 {
 			this->vKeyPeriod->Size = System::Drawing::Size(50, 50);
 			this->vKeyPeriod->TabIndex = 59;
 			this->vKeyPeriod->Text = L">\r\n.";
-			this->vKeyPeriod->UseVisualStyleBackColor = true;
+			
 			this->vKeyPeriod->Click += gcnew System::EventHandler(this, &KeyboardForm::vKeyPeriod_Click);
 			this->vKeyPeriod->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &KeyboardForm::Key_MouseDown);
-			this->vKeyPeriod->MouseEnter += gcnew System::EventHandler(this, &KeyboardForm::Key_MouseEnter);
 			this->vKeyPeriod->MouseLeave += gcnew System::EventHandler(this, &KeyboardForm::Key_MouseLeave);
 			// 
 			// vKeyComma
@@ -206,23 +223,21 @@ namespace ECE458SecurityProjectRev2 {
 			this->vKeyComma->Size = System::Drawing::Size(50, 50);
 			this->vKeyComma->TabIndex = 58;
 			this->vKeyComma->Text = L"<\r\n,";
-			this->vKeyComma->UseVisualStyleBackColor = true;
+			
 			this->vKeyComma->Click += gcnew System::EventHandler(this, &KeyboardForm::vKeyComma_Click);
 			this->vKeyComma->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &KeyboardForm::Key_MouseDown);
-			this->vKeyComma->MouseEnter += gcnew System::EventHandler(this, &KeyboardForm::Key_MouseEnter);
 			this->vKeyComma->MouseLeave += gcnew System::EventHandler(this, &KeyboardForm::Key_MouseLeave);
 			// 
 			// vKeyM
-			// 
+			//
 			this->vKeyM->Location = System::Drawing::Point(461, 241);
 			this->vKeyM->Name = L"vKeyM";
 			this->vKeyM->Size = System::Drawing::Size(50, 50);
 			this->vKeyM->TabIndex = 57;
 			this->vKeyM->Text = L"M";
-			this->vKeyM->UseVisualStyleBackColor = true;
+			
 			this->vKeyM->Click += gcnew System::EventHandler(this, &KeyboardForm::LetterKey_Click);
 			this->vKeyM->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &KeyboardForm::Key_MouseDown);
-			this->vKeyM->MouseEnter += gcnew System::EventHandler(this, &KeyboardForm::Key_MouseEnter);
 			this->vKeyM->MouseLeave += gcnew System::EventHandler(this, &KeyboardForm::Key_MouseLeave);
 			// 
 			// vKeyN
@@ -232,29 +247,21 @@ namespace ECE458SecurityProjectRev2 {
 			this->vKeyN->Size = System::Drawing::Size(50, 50);
 			this->vKeyN->TabIndex = 56;
 			this->vKeyN->Text = L"N";
-			this->vKeyN->UseVisualStyleBackColor = true;
+			
 			this->vKeyN->Click += gcnew System::EventHandler(this, &KeyboardForm::LetterKey_Click);
 			this->vKeyN->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &KeyboardForm::Key_MouseDown);
-			this->vKeyN->MouseEnter += gcnew System::EventHandler(this, &KeyboardForm::Key_MouseEnter);
 			this->vKeyN->MouseLeave += gcnew System::EventHandler(this, &KeyboardForm::Key_MouseLeave);
 			// 
 			// vKeyB
 			// 
-			this->vKeyB->BackColor = System::Drawing::SystemColors::Control;
-			this->vKeyB->FlatAppearance->BorderColor = System::Drawing::Color::Black;
-			this->vKeyB->FlatAppearance->BorderSize = 0;
-			this->vKeyB->FlatAppearance->MouseDownBackColor = System::Drawing::SystemColors::Control;
-			this->vKeyB->FlatAppearance->MouseOverBackColor = System::Drawing::SystemColors::Control;
-			this->vKeyB->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->vKeyB->Location = System::Drawing::Point(351, 241);
 			this->vKeyB->Name = L"vKeyB";
 			this->vKeyB->Size = System::Drawing::Size(50, 50);
 			this->vKeyB->TabIndex = 55;
 			this->vKeyB->Text = L"B";
-			this->vKeyB->UseVisualStyleBackColor = false;
+			
 			this->vKeyB->Click += gcnew System::EventHandler(this, &KeyboardForm::LetterKey_Click);
 			this->vKeyB->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &KeyboardForm::Key_MouseDown);
-			this->vKeyB->MouseEnter += gcnew System::EventHandler(this, &KeyboardForm::Key_MouseEnter);
 			this->vKeyB->MouseLeave += gcnew System::EventHandler(this, &KeyboardForm::Key_MouseLeave);
 			// 
 			// vKeyV
@@ -264,10 +271,9 @@ namespace ECE458SecurityProjectRev2 {
 			this->vKeyV->Size = System::Drawing::Size(50, 50);
 			this->vKeyV->TabIndex = 54;
 			this->vKeyV->Text = L"V";
-			this->vKeyV->UseVisualStyleBackColor = true;
+			
 			this->vKeyV->Click += gcnew System::EventHandler(this, &KeyboardForm::LetterKey_Click);
 			this->vKeyV->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &KeyboardForm::Key_MouseDown);
-			this->vKeyV->MouseEnter += gcnew System::EventHandler(this, &KeyboardForm::Key_MouseEnter);
 			this->vKeyV->MouseLeave += gcnew System::EventHandler(this, &KeyboardForm::Key_MouseLeave);
 			// 
 			// vKeyC
@@ -277,10 +283,9 @@ namespace ECE458SecurityProjectRev2 {
 			this->vKeyC->Size = System::Drawing::Size(50, 50);
 			this->vKeyC->TabIndex = 53;
 			this->vKeyC->Text = L"C";
-			this->vKeyC->UseVisualStyleBackColor = true;
+			
 			this->vKeyC->Click += gcnew System::EventHandler(this, &KeyboardForm::LetterKey_Click);
 			this->vKeyC->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &KeyboardForm::Key_MouseDown);
-			this->vKeyC->MouseEnter += gcnew System::EventHandler(this, &KeyboardForm::Key_MouseEnter);
 			this->vKeyC->MouseLeave += gcnew System::EventHandler(this, &KeyboardForm::Key_MouseLeave);
 			// 
 			// vKeyX
@@ -290,10 +295,9 @@ namespace ECE458SecurityProjectRev2 {
 			this->vKeyX->Size = System::Drawing::Size(50, 50);
 			this->vKeyX->TabIndex = 52;
 			this->vKeyX->Text = L"X";
-			this->vKeyX->UseVisualStyleBackColor = true;
+			
 			this->vKeyX->Click += gcnew System::EventHandler(this, &KeyboardForm::LetterKey_Click);
 			this->vKeyX->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &KeyboardForm::Key_MouseDown);
-			this->vKeyX->MouseEnter += gcnew System::EventHandler(this, &KeyboardForm::Key_MouseEnter);
 			this->vKeyX->MouseLeave += gcnew System::EventHandler(this, &KeyboardForm::Key_MouseLeave);
 			// 
 			// vKeyZ
@@ -303,10 +307,9 @@ namespace ECE458SecurityProjectRev2 {
 			this->vKeyZ->Size = System::Drawing::Size(50, 50);
 			this->vKeyZ->TabIndex = 51;
 			this->vKeyZ->Text = L"Z";
-			this->vKeyZ->UseVisualStyleBackColor = true;
+			
 			this->vKeyZ->Click += gcnew System::EventHandler(this, &KeyboardForm::LetterKey_Click);
 			this->vKeyZ->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &KeyboardForm::Key_MouseDown);
-			this->vKeyZ->MouseEnter += gcnew System::EventHandler(this, &KeyboardForm::Key_MouseEnter);
 			this->vKeyZ->MouseLeave += gcnew System::EventHandler(this, &KeyboardForm::Key_MouseLeave);
 			// 
 			// vKeyL
@@ -316,10 +319,9 @@ namespace ECE458SecurityProjectRev2 {
 			this->vKeyL->Size = System::Drawing::Size(50, 50);
 			this->vKeyL->TabIndex = 50;
 			this->vKeyL->Text = L"L";
-			this->vKeyL->UseVisualStyleBackColor = true;
+			
 			this->vKeyL->Click += gcnew System::EventHandler(this, &KeyboardForm::LetterKey_Click);
 			this->vKeyL->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &KeyboardForm::Key_MouseDown);
-			this->vKeyL->MouseEnter += gcnew System::EventHandler(this, &KeyboardForm::Key_MouseEnter);
 			this->vKeyL->MouseLeave += gcnew System::EventHandler(this, &KeyboardForm::Key_MouseLeave);
 			// 
 			// vKeyK
@@ -329,10 +331,9 @@ namespace ECE458SecurityProjectRev2 {
 			this->vKeyK->Size = System::Drawing::Size(50, 50);
 			this->vKeyK->TabIndex = 49;
 			this->vKeyK->Text = L"K";
-			this->vKeyK->UseVisualStyleBackColor = true;
+			
 			this->vKeyK->Click += gcnew System::EventHandler(this, &KeyboardForm::LetterKey_Click);
 			this->vKeyK->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &KeyboardForm::Key_MouseDown);
-			this->vKeyK->MouseEnter += gcnew System::EventHandler(this, &KeyboardForm::Key_MouseEnter);
 			this->vKeyK->MouseLeave += gcnew System::EventHandler(this, &KeyboardForm::Key_MouseLeave);
 			// 
 			// vKeyJ
@@ -342,10 +343,9 @@ namespace ECE458SecurityProjectRev2 {
 			this->vKeyJ->Size = System::Drawing::Size(50, 50);
 			this->vKeyJ->TabIndex = 48;
 			this->vKeyJ->Text = L"J";
-			this->vKeyJ->UseVisualStyleBackColor = true;
+			
 			this->vKeyJ->Click += gcnew System::EventHandler(this, &KeyboardForm::LetterKey_Click);
 			this->vKeyJ->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &KeyboardForm::Key_MouseDown);
-			this->vKeyJ->MouseEnter += gcnew System::EventHandler(this, &KeyboardForm::Key_MouseEnter);
 			this->vKeyJ->MouseLeave += gcnew System::EventHandler(this, &KeyboardForm::Key_MouseLeave);
 			// 
 			// vKeyH
@@ -355,10 +355,9 @@ namespace ECE458SecurityProjectRev2 {
 			this->vKeyH->Size = System::Drawing::Size(50, 50);
 			this->vKeyH->TabIndex = 47;
 			this->vKeyH->Text = L"H";
-			this->vKeyH->UseVisualStyleBackColor = true;
+			
 			this->vKeyH->Click += gcnew System::EventHandler(this, &KeyboardForm::LetterKey_Click);
 			this->vKeyH->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &KeyboardForm::Key_MouseDown);
-			this->vKeyH->MouseEnter += gcnew System::EventHandler(this, &KeyboardForm::Key_MouseEnter);
 			this->vKeyH->MouseLeave += gcnew System::EventHandler(this, &KeyboardForm::Key_MouseLeave);
 			// 
 			// vKeyG
@@ -368,10 +367,9 @@ namespace ECE458SecurityProjectRev2 {
 			this->vKeyG->Size = System::Drawing::Size(50, 50);
 			this->vKeyG->TabIndex = 46;
 			this->vKeyG->Text = L"G";
-			this->vKeyG->UseVisualStyleBackColor = true;
+			
 			this->vKeyG->Click += gcnew System::EventHandler(this, &KeyboardForm::LetterKey_Click);
 			this->vKeyG->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &KeyboardForm::Key_MouseDown);
-			this->vKeyG->MouseEnter += gcnew System::EventHandler(this, &KeyboardForm::Key_MouseEnter);
 			this->vKeyG->MouseLeave += gcnew System::EventHandler(this, &KeyboardForm::Key_MouseLeave);
 			// 
 			// vKeyF
@@ -381,10 +379,9 @@ namespace ECE458SecurityProjectRev2 {
 			this->vKeyF->Size = System::Drawing::Size(50, 50);
 			this->vKeyF->TabIndex = 45;
 			this->vKeyF->Text = L"F";
-			this->vKeyF->UseVisualStyleBackColor = true;
+			
 			this->vKeyF->Click += gcnew System::EventHandler(this, &KeyboardForm::LetterKey_Click);
 			this->vKeyF->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &KeyboardForm::Key_MouseDown);
-			this->vKeyF->MouseEnter += gcnew System::EventHandler(this, &KeyboardForm::Key_MouseEnter);
 			this->vKeyF->MouseLeave += gcnew System::EventHandler(this, &KeyboardForm::Key_MouseLeave);
 			// 
 			// vKeyD
@@ -394,10 +391,9 @@ namespace ECE458SecurityProjectRev2 {
 			this->vKeyD->Size = System::Drawing::Size(50, 50);
 			this->vKeyD->TabIndex = 44;
 			this->vKeyD->Text = L"D";
-			this->vKeyD->UseVisualStyleBackColor = true;
+			
 			this->vKeyD->Click += gcnew System::EventHandler(this, &KeyboardForm::LetterKey_Click);
 			this->vKeyD->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &KeyboardForm::Key_MouseDown);
-			this->vKeyD->MouseEnter += gcnew System::EventHandler(this, &KeyboardForm::Key_MouseEnter);
 			this->vKeyD->MouseLeave += gcnew System::EventHandler(this, &KeyboardForm::Key_MouseLeave);
 			// 
 			// vKeyS
@@ -407,10 +403,9 @@ namespace ECE458SecurityProjectRev2 {
 			this->vKeyS->Size = System::Drawing::Size(50, 50);
 			this->vKeyS->TabIndex = 43;
 			this->vKeyS->Text = L"S";
-			this->vKeyS->UseVisualStyleBackColor = true;
+			
 			this->vKeyS->Click += gcnew System::EventHandler(this, &KeyboardForm::LetterKey_Click);
 			this->vKeyS->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &KeyboardForm::Key_MouseDown);
-			this->vKeyS->MouseEnter += gcnew System::EventHandler(this, &KeyboardForm::Key_MouseEnter);
 			this->vKeyS->MouseLeave += gcnew System::EventHandler(this, &KeyboardForm::Key_MouseLeave);
 			// 
 			// vKeyA
@@ -420,10 +415,9 @@ namespace ECE458SecurityProjectRev2 {
 			this->vKeyA->Size = System::Drawing::Size(50, 50);
 			this->vKeyA->TabIndex = 42;
 			this->vKeyA->Text = L"A";
-			this->vKeyA->UseVisualStyleBackColor = true;
+			
 			this->vKeyA->Click += gcnew System::EventHandler(this, &KeyboardForm::LetterKey_Click);
 			this->vKeyA->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &KeyboardForm::Key_MouseDown);
-			this->vKeyA->MouseEnter += gcnew System::EventHandler(this, &KeyboardForm::Key_MouseEnter);
 			this->vKeyA->MouseLeave += gcnew System::EventHandler(this, &KeyboardForm::Key_MouseLeave);
 			// 
 			// vKeyP
@@ -433,10 +427,9 @@ namespace ECE458SecurityProjectRev2 {
 			this->vKeyP->Size = System::Drawing::Size(50, 50);
 			this->vKeyP->TabIndex = 41;
 			this->vKeyP->Text = L"P";
-			this->vKeyP->UseVisualStyleBackColor = true;
+			
 			this->vKeyP->Click += gcnew System::EventHandler(this, &KeyboardForm::LetterKey_Click);
 			this->vKeyP->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &KeyboardForm::Key_MouseDown);
-			this->vKeyP->MouseEnter += gcnew System::EventHandler(this, &KeyboardForm::Key_MouseEnter);
 			this->vKeyP->MouseLeave += gcnew System::EventHandler(this, &KeyboardForm::Key_MouseLeave);
 			// 
 			// vKeyO
@@ -446,10 +439,9 @@ namespace ECE458SecurityProjectRev2 {
 			this->vKeyO->Size = System::Drawing::Size(50, 50);
 			this->vKeyO->TabIndex = 40;
 			this->vKeyO->Text = L"O";
-			this->vKeyO->UseVisualStyleBackColor = true;
+			
 			this->vKeyO->Click += gcnew System::EventHandler(this, &KeyboardForm::LetterKey_Click);
 			this->vKeyO->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &KeyboardForm::Key_MouseDown);
-			this->vKeyO->MouseEnter += gcnew System::EventHandler(this, &KeyboardForm::Key_MouseEnter);
 			this->vKeyO->MouseLeave += gcnew System::EventHandler(this, &KeyboardForm::Key_MouseLeave);
 			// 
 			// vKeyI
@@ -459,10 +451,9 @@ namespace ECE458SecurityProjectRev2 {
 			this->vKeyI->Size = System::Drawing::Size(50, 50);
 			this->vKeyI->TabIndex = 39;
 			this->vKeyI->Text = L"I";
-			this->vKeyI->UseVisualStyleBackColor = true;
+			
 			this->vKeyI->Click += gcnew System::EventHandler(this, &KeyboardForm::LetterKey_Click);
 			this->vKeyI->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &KeyboardForm::Key_MouseDown);
-			this->vKeyI->MouseEnter += gcnew System::EventHandler(this, &KeyboardForm::Key_MouseEnter);
 			this->vKeyI->MouseLeave += gcnew System::EventHandler(this, &KeyboardForm::Key_MouseLeave);
 			// 
 			// vKeyU
@@ -472,10 +463,9 @@ namespace ECE458SecurityProjectRev2 {
 			this->vKeyU->Size = System::Drawing::Size(50, 50);
 			this->vKeyU->TabIndex = 38;
 			this->vKeyU->Text = L"U";
-			this->vKeyU->UseVisualStyleBackColor = true;
+			
 			this->vKeyU->Click += gcnew System::EventHandler(this, &KeyboardForm::LetterKey_Click);
 			this->vKeyU->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &KeyboardForm::Key_MouseDown);
-			this->vKeyU->MouseEnter += gcnew System::EventHandler(this, &KeyboardForm::Key_MouseEnter);
 			this->vKeyU->MouseLeave += gcnew System::EventHandler(this, &KeyboardForm::Key_MouseLeave);
 			// 
 			// vKeyY
@@ -485,10 +475,9 @@ namespace ECE458SecurityProjectRev2 {
 			this->vKeyY->Size = System::Drawing::Size(50, 50);
 			this->vKeyY->TabIndex = 37;
 			this->vKeyY->Text = L"Y";
-			this->vKeyY->UseVisualStyleBackColor = true;
+			
 			this->vKeyY->Click += gcnew System::EventHandler(this, &KeyboardForm::LetterKey_Click);
 			this->vKeyY->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &KeyboardForm::Key_MouseDown);
-			this->vKeyY->MouseEnter += gcnew System::EventHandler(this, &KeyboardForm::Key_MouseEnter);
 			this->vKeyY->MouseLeave += gcnew System::EventHandler(this, &KeyboardForm::Key_MouseLeave);
 			// 
 			// vKeyT
@@ -498,10 +487,9 @@ namespace ECE458SecurityProjectRev2 {
 			this->vKeyT->Size = System::Drawing::Size(50, 50);
 			this->vKeyT->TabIndex = 36;
 			this->vKeyT->Text = L"T";
-			this->vKeyT->UseVisualStyleBackColor = true;
+			
 			this->vKeyT->Click += gcnew System::EventHandler(this, &KeyboardForm::LetterKey_Click);
 			this->vKeyT->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &KeyboardForm::Key_MouseDown);
-			this->vKeyT->MouseEnter += gcnew System::EventHandler(this, &KeyboardForm::Key_MouseEnter);
 			this->vKeyT->MouseLeave += gcnew System::EventHandler(this, &KeyboardForm::Key_MouseLeave);
 			// 
 			// vKeyR
@@ -511,10 +499,9 @@ namespace ECE458SecurityProjectRev2 {
 			this->vKeyR->Size = System::Drawing::Size(50, 50);
 			this->vKeyR->TabIndex = 35;
 			this->vKeyR->Text = L"R";
-			this->vKeyR->UseVisualStyleBackColor = true;
+			
 			this->vKeyR->Click += gcnew System::EventHandler(this, &KeyboardForm::LetterKey_Click);
 			this->vKeyR->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &KeyboardForm::Key_MouseDown);
-			this->vKeyR->MouseEnter += gcnew System::EventHandler(this, &KeyboardForm::Key_MouseEnter);
 			this->vKeyR->MouseLeave += gcnew System::EventHandler(this, &KeyboardForm::Key_MouseLeave);
 			// 
 			// vKeyE
@@ -524,10 +511,9 @@ namespace ECE458SecurityProjectRev2 {
 			this->vKeyE->Size = System::Drawing::Size(50, 50);
 			this->vKeyE->TabIndex = 34;
 			this->vKeyE->Text = L"E";
-			this->vKeyE->UseVisualStyleBackColor = true;
+			
 			this->vKeyE->Click += gcnew System::EventHandler(this, &KeyboardForm::LetterKey_Click);
 			this->vKeyE->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &KeyboardForm::Key_MouseDown);
-			this->vKeyE->MouseEnter += gcnew System::EventHandler(this, &KeyboardForm::Key_MouseEnter);
 			this->vKeyE->MouseLeave += gcnew System::EventHandler(this, &KeyboardForm::Key_MouseLeave);
 			// 
 			// vKeyW
@@ -537,10 +523,9 @@ namespace ECE458SecurityProjectRev2 {
 			this->vKeyW->Size = System::Drawing::Size(50, 50);
 			this->vKeyW->TabIndex = 33;
 			this->vKeyW->Text = L"W";
-			this->vKeyW->UseVisualStyleBackColor = true;
+			
 			this->vKeyW->Click += gcnew System::EventHandler(this, &KeyboardForm::LetterKey_Click);
 			this->vKeyW->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &KeyboardForm::Key_MouseDown);
-			this->vKeyW->MouseEnter += gcnew System::EventHandler(this, &KeyboardForm::Key_MouseEnter);
 			this->vKeyW->MouseLeave += gcnew System::EventHandler(this, &KeyboardForm::Key_MouseLeave);
 			// 
 			// vKeyQ
@@ -550,10 +535,9 @@ namespace ECE458SecurityProjectRev2 {
 			this->vKeyQ->Size = System::Drawing::Size(50, 50);
 			this->vKeyQ->TabIndex = 32;
 			this->vKeyQ->Text = L"Q";
-			this->vKeyQ->UseVisualStyleBackColor = true;
+			
 			this->vKeyQ->Click += gcnew System::EventHandler(this, &KeyboardForm::LetterKey_Click);
 			this->vKeyQ->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &KeyboardForm::Key_MouseDown);
-			this->vKeyQ->MouseEnter += gcnew System::EventHandler(this, &KeyboardForm::Key_MouseEnter);
 			this->vKeyQ->MouseLeave += gcnew System::EventHandler(this, &KeyboardForm::Key_MouseLeave);
 			// 
 			// inputBox
@@ -561,9 +545,9 @@ namespace ECE458SecurityProjectRev2 {
 			this->inputBox->BackColor = System::Drawing::Color::White;
 			this->inputBox->Location = System::Drawing::Point(103, 21);
 			this->inputBox->Name = L"inputBox";
-			this->inputBox->PasswordChar = '*';
 			this->inputBox->ReadOnly = true;
 			this->inputBox->Size = System::Drawing::Size(600, 20);
+			this->inputBox->UseSystemPasswordChar = true;
 			this->inputBox->TabIndex = 31;
 			// 
 			// vKeyShiftL
@@ -573,7 +557,7 @@ namespace ECE458SecurityProjectRev2 {
 			this->vKeyShiftL->Size = System::Drawing::Size(80, 50);
 			this->vKeyShiftL->TabIndex = 62;
 			this->vKeyShiftL->Text = L"Shift";
-			this->vKeyShiftL->UseVisualStyleBackColor = true;
+			
 			this->vKeyShiftL->Click += gcnew System::EventHandler(this, &KeyboardForm::ShiftKeyPressed);
 			// 
 			// vKeyCaps
@@ -583,7 +567,7 @@ namespace ECE458SecurityProjectRev2 {
 			this->vKeyCaps->Size = System::Drawing::Size(105, 50);
 			this->vKeyCaps->TabIndex = 63;
 			this->vKeyCaps->Text = L"CapsLock";
-			this->vKeyCaps->UseVisualStyleBackColor = true;
+			
 			this->vKeyCaps->Click += gcnew System::EventHandler(this, &KeyboardForm::CapsLockKeyPressed);
 			// 
 			// vKeyShiftR
@@ -593,7 +577,7 @@ namespace ECE458SecurityProjectRev2 {
 			this->vKeyShiftR->Size = System::Drawing::Size(80, 50);
 			this->vKeyShiftR->TabIndex = 64;
 			this->vKeyShiftR->Text = L"Shift";
-			this->vKeyShiftR->UseVisualStyleBackColor = true;
+			
 			this->vKeyShiftR->Click += gcnew System::EventHandler(this, &KeyboardForm::ShiftKeyPressed);
 			// 
 			// vKeyEnter
@@ -603,7 +587,7 @@ namespace ECE458SecurityProjectRev2 {
 			this->vKeyEnter->Size = System::Drawing::Size(106, 50);
 			this->vKeyEnter->TabIndex = 65;
 			this->vKeyEnter->Text = L"Enter";
-			this->vKeyEnter->UseVisualStyleBackColor = true;
+			
 			this->vKeyEnter->Click += gcnew System::EventHandler(this, &KeyboardForm::vKeyEnter_Click);
 			// 
 			// vKeyBackspace
@@ -613,7 +597,7 @@ namespace ECE458SecurityProjectRev2 {
 			this->vKeyBackspace->Size = System::Drawing::Size(80, 50);
 			this->vKeyBackspace->TabIndex = 66;
 			this->vKeyBackspace->Text = L"Backspace";
-			this->vKeyBackspace->UseVisualStyleBackColor = true;
+			
 			this->vKeyBackspace->Click += gcnew System::EventHandler(this, &KeyboardForm::vKeyBackspace_Click);
 			// 
 			// vKey1
@@ -623,10 +607,9 @@ namespace ECE458SecurityProjectRev2 {
 			this->vKey1->Size = System::Drawing::Size(50, 50);
 			this->vKey1->TabIndex = 67;
 			this->vKey1->Text = L"!\r\n1";
-			this->vKey1->UseVisualStyleBackColor = true;
+			
 			this->vKey1->Click += gcnew System::EventHandler(this, &KeyboardForm::vKey1_Click);
 			this->vKey1->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &KeyboardForm::Key_MouseDown);
-			this->vKey1->MouseEnter += gcnew System::EventHandler(this, &KeyboardForm::Key_MouseEnter);
 			this->vKey1->MouseLeave += gcnew System::EventHandler(this, &KeyboardForm::Key_MouseLeave);
 			// 
 			// vKey2
@@ -636,10 +619,9 @@ namespace ECE458SecurityProjectRev2 {
 			this->vKey2->Size = System::Drawing::Size(50, 50);
 			this->vKey2->TabIndex = 68;
 			this->vKey2->Text = L"@\r\n2";
-			this->vKey2->UseVisualStyleBackColor = true;
+			
 			this->vKey2->Click += gcnew System::EventHandler(this, &KeyboardForm::vKey2_Click);
 			this->vKey2->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &KeyboardForm::Key_MouseDown);
-			this->vKey2->MouseEnter += gcnew System::EventHandler(this, &KeyboardForm::Key_MouseEnter);
 			this->vKey2->MouseLeave += gcnew System::EventHandler(this, &KeyboardForm::Key_MouseLeave);
 			// 
 			// vKey3
@@ -649,10 +631,9 @@ namespace ECE458SecurityProjectRev2 {
 			this->vKey3->Size = System::Drawing::Size(50, 50);
 			this->vKey3->TabIndex = 69;
 			this->vKey3->Text = L"#\r\n3";
-			this->vKey3->UseVisualStyleBackColor = true;
+			
 			this->vKey3->Click += gcnew System::EventHandler(this, &KeyboardForm::vKey3_Click);
 			this->vKey3->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &KeyboardForm::Key_MouseDown);
-			this->vKey3->MouseEnter += gcnew System::EventHandler(this, &KeyboardForm::Key_MouseEnter);
 			this->vKey3->MouseLeave += gcnew System::EventHandler(this, &KeyboardForm::Key_MouseLeave);
 			// 
 			// vKey4
@@ -662,10 +643,9 @@ namespace ECE458SecurityProjectRev2 {
 			this->vKey4->Size = System::Drawing::Size(50, 50);
 			this->vKey4->TabIndex = 70;
 			this->vKey4->Text = L"$\r\n4";
-			this->vKey4->UseVisualStyleBackColor = true;
+			
 			this->vKey4->Click += gcnew System::EventHandler(this, &KeyboardForm::vKey4_Click);
 			this->vKey4->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &KeyboardForm::Key_MouseDown);
-			this->vKey4->MouseEnter += gcnew System::EventHandler(this, &KeyboardForm::Key_MouseEnter);
 			this->vKey4->MouseLeave += gcnew System::EventHandler(this, &KeyboardForm::Key_MouseLeave);
 			// 
 			// vKey5
@@ -675,10 +655,9 @@ namespace ECE458SecurityProjectRev2 {
 			this->vKey5->Size = System::Drawing::Size(50, 50);
 			this->vKey5->TabIndex = 71;
 			this->vKey5->Text = L"%\r\n5";
-			this->vKey5->UseVisualStyleBackColor = true;
+			
 			this->vKey5->Click += gcnew System::EventHandler(this, &KeyboardForm::vKey5_Click);
 			this->vKey5->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &KeyboardForm::Key_MouseDown);
-			this->vKey5->MouseEnter += gcnew System::EventHandler(this, &KeyboardForm::Key_MouseEnter);
 			this->vKey5->MouseLeave += gcnew System::EventHandler(this, &KeyboardForm::Key_MouseLeave);
 			// 
 			// vKey6
@@ -688,10 +667,9 @@ namespace ECE458SecurityProjectRev2 {
 			this->vKey6->Size = System::Drawing::Size(50, 50);
 			this->vKey6->TabIndex = 72;
 			this->vKey6->Text = L"^\r\n6";
-			this->vKey6->UseVisualStyleBackColor = true;
+			
 			this->vKey6->Click += gcnew System::EventHandler(this, &KeyboardForm::vKey6_Click);
 			this->vKey6->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &KeyboardForm::Key_MouseDown);
-			this->vKey6->MouseEnter += gcnew System::EventHandler(this, &KeyboardForm::Key_MouseEnter);
 			this->vKey6->MouseLeave += gcnew System::EventHandler(this, &KeyboardForm::Key_MouseLeave);
 			// 
 			// vKey7
@@ -701,10 +679,9 @@ namespace ECE458SecurityProjectRev2 {
 			this->vKey7->Size = System::Drawing::Size(50, 50);
 			this->vKey7->TabIndex = 73;
 			this->vKey7->Text = L"&&\r\n7";
-			this->vKey7->UseVisualStyleBackColor = true;
+			
 			this->vKey7->Click += gcnew System::EventHandler(this, &KeyboardForm::vKey7_Click);
 			this->vKey7->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &KeyboardForm::Key_MouseDown);
-			this->vKey7->MouseEnter += gcnew System::EventHandler(this, &KeyboardForm::Key_MouseEnter);
 			this->vKey7->MouseLeave += gcnew System::EventHandler(this, &KeyboardForm::Key_MouseLeave);
 			// 
 			// vKey8
@@ -714,10 +691,9 @@ namespace ECE458SecurityProjectRev2 {
 			this->vKey8->Size = System::Drawing::Size(50, 50);
 			this->vKey8->TabIndex = 74;
 			this->vKey8->Text = L"*\r\n8";
-			this->vKey8->UseVisualStyleBackColor = true;
+			
 			this->vKey8->Click += gcnew System::EventHandler(this, &KeyboardForm::vKey8_Click);
 			this->vKey8->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &KeyboardForm::Key_MouseDown);
-			this->vKey8->MouseEnter += gcnew System::EventHandler(this, &KeyboardForm::Key_MouseEnter);
 			this->vKey8->MouseLeave += gcnew System::EventHandler(this, &KeyboardForm::Key_MouseLeave);
 			// 
 			// vKey9
@@ -727,10 +703,9 @@ namespace ECE458SecurityProjectRev2 {
 			this->vKey9->Size = System::Drawing::Size(50, 50);
 			this->vKey9->TabIndex = 75;
 			this->vKey9->Text = L"(\r\n9";
-			this->vKey9->UseVisualStyleBackColor = true;
+			
 			this->vKey9->Click += gcnew System::EventHandler(this, &KeyboardForm::vKey9_Click);
 			this->vKey9->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &KeyboardForm::Key_MouseDown);
-			this->vKey9->MouseEnter += gcnew System::EventHandler(this, &KeyboardForm::Key_MouseEnter);
 			this->vKey9->MouseLeave += gcnew System::EventHandler(this, &KeyboardForm::Key_MouseLeave);
 			// 
 			// vKey0
@@ -740,10 +715,9 @@ namespace ECE458SecurityProjectRev2 {
 			this->vKey0->Size = System::Drawing::Size(50, 50);
 			this->vKey0->TabIndex = 76;
 			this->vKey0->Text = L")\r\n0";
-			this->vKey0->UseVisualStyleBackColor = true;
+			
 			this->vKey0->Click += gcnew System::EventHandler(this, &KeyboardForm::vKey0_Click);
 			this->vKey0->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &KeyboardForm::Key_MouseDown);
-			this->vKey0->MouseEnter += gcnew System::EventHandler(this, &KeyboardForm::Key_MouseEnter);
 			this->vKey0->MouseLeave += gcnew System::EventHandler(this, &KeyboardForm::Key_MouseLeave);
 			// 
 			// KeyboardForm
@@ -804,157 +778,41 @@ namespace ECE458SecurityProjectRev2 {
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
+			returnString = "";
 		}
 #pragma endregion
-	private: System::Void LetterKey_Click(System::Object^  sender, System::EventArgs^  e) {
-				 Button^ toGet = safe_cast<Button ^>(sender);
-				 AppendLetterToTextbox(toGet -> Text -> ToLower());
-		 }
-	private: System::Void vKey1_Click(System::Object^  sender, System::EventArgs^  e) {
-			 AppendNumberSymbolToTextbox('!','1');
-	}
-	private: System::Void vKey2_Click(System::Object^  sender, System::EventArgs^  e) {
-			 AppendNumberSymbolToTextbox('@','2');
-	}
-	private: System::Void vKey3_Click(System::Object^  sender, System::EventArgs^  e) {
-			 AppendNumberSymbolToTextbox('#','3');
-	}
-	private: System::Void vKey4_Click(System::Object^  sender, System::EventArgs^  e) {
-			 AppendNumberSymbolToTextbox('$','4');
-	}
-	private: System::Void vKey5_Click(System::Object^  sender, System::EventArgs^  e) {
-			 AppendNumberSymbolToTextbox('%','5');
-	}
-	private: System::Void vKey6_Click(System::Object^  sender, System::EventArgs^  e) {
-			 AppendNumberSymbolToTextbox('^','6');
-	}
-	private: System::Void vKey7_Click(System::Object^  sender, System::EventArgs^  e) {
-			 AppendNumberSymbolToTextbox('&','7');
-	}
-	private: System::Void vKey8_Click(System::Object^  sender, System::EventArgs^  e) {
-			 AppendNumberSymbolToTextbox('*','8');
-	}
-	private: System::Void vKey9_Click(System::Object^  sender, System::EventArgs^  e) {
-			 AppendNumberSymbolToTextbox('(','9');
-	}
-	private: System::Void vKey0_Click(System::Object^  sender, System::EventArgs^  e) {
-			 AppendNumberSymbolToTextbox(')','0');
-	}
-	private: System::Void vKeyComma_Click(System::Object^  sender, System::EventArgs^  e) {
-				 AppendNumberSymbolToTextbox('<',',');
-		 }
-	private: System::Void vKeyPeriod_Click(System::Object^  sender, System::EventArgs^  e) {
-				 AppendNumberSymbolToTextbox('>','.');
-		 }
-	private: System::Void vKeySlash_Click(System::Object^  sender, System::EventArgs^  e) {
-				 AppendNumberSymbolToTextbox('?','/');
-		 }
-	private: System::Void vKeySpace_Click(System::Object^  sender, System::EventArgs^  e) {
-				 clock_t startTime = clock();
-				 inputBox -> AppendText(" ");
-				 RevealCursor(startTime);
-		 }
-	private: System::Void ShiftKeyPressed(System::Object^  sender, System::EventArgs^  e) {
-				 shiftOn = !shiftOn;
-				 UpdateKeyAppearances();
-		 }
-	private: System::Void CapsLockKeyPressed(System::Object^  sender, System::EventArgs^  e) {
-				 capsLockOn = !capsLockOn;
-				 UpdateKeyAppearances();
-		 }
-	private: System::Void vKeyBackspace_Click(System::Object^  sender, System::EventArgs^  e) {
-				 if (inputBox -> Text -> Length > 0) {
-					inputBox -> Text = inputBox -> Text -> Substring(0, inputBox -> Text -> Length - 1);
-				 }
-		 }
-	private: System::Void UpdateKeyAppearances() {
-				 //Update key appearances based on whether capslock / shift is enabled.
-				 if (shiftOn) {
-					 //Change background color.
-					 vKeyShiftL -> BackColor = SystemColors::Highlight;
-					 vKeyShiftR -> BackColor = SystemColors::Highlight;
-				 }
-				 else {
-					 vKeyShiftL -> BackColor = SystemColors::Control;
-					 vKeyShiftR -> BackColor = SystemColors::Control;
-				 }
-				 if (capsLockOn) {
-					 vKeyCaps -> BackColor = SystemColors::Highlight;
-				 }
-				 else {
-					 vKeyCaps -> BackColor = SystemColors::Control;
-				 }
+	private: 
+		System::Void LetterKey_Click(System::Object^  sender, System::EventArgs^  e);
+		System::Void vKey1_Click(System::Object^  sender, System::EventArgs^  e);
+		System::Void vKey2_Click(System::Object^  sender, System::EventArgs^  e);
+		System::Void vKey3_Click(System::Object^  sender, System::EventArgs^  e);
+		System::Void vKey4_Click(System::Object^  sender, System::EventArgs^  e);
+		System::Void vKey5_Click(System::Object^  sender, System::EventArgs^  e);
+		System::Void vKey6_Click(System::Object^  sender, System::EventArgs^  e);
+		System::Void vKey7_Click(System::Object^  sender, System::EventArgs^  e);
+		System::Void vKey8_Click(System::Object^  sender, System::EventArgs^  e);
+		System::Void vKey9_Click(System::Object^  sender, System::EventArgs^  e);
+		System::Void vKey0_Click(System::Object^  sender, System::EventArgs^  e);
+		System::Void vKeyComma_Click(System::Object^  sender, System::EventArgs^  e);
+		System::Void vKeyPeriod_Click(System::Object^  sender, System::EventArgs^  e);
+		System::Void vKeySlash_Click(System::Object^  sender, System::EventArgs^  e);
+		System::Void vKeySpace_Click(System::Object^  sender, System::EventArgs^  e);
+		System::Void ShiftKeyPressed(System::Object^  sender, System::EventArgs^  e);
+		System::Void CapsLockKeyPressed(System::Object^  sender, System::EventArgs^  e);
+		System::Void vKeyBackspace_Click(System::Object^  sender, System::EventArgs^  e);
+		System::Void UpdateKeyAppearances();
+		System::Void AppendLetterToTextbox(String^ characterToAppend);
+		System::Void AppendNumberSymbolToTextbox(char upperToAppend, char lowerToAppend);
+		System::Void RevealCursor(clock_t startTime);
+		System::Void Key_MouseDown(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e);
+		System::Void Key_MouseLeave(System::Object^  sender, System::EventArgs^  e);
+		System::Void CustomShowMouse();
+		System::Void CustomHideMouse();
+		System::Void vKeyEnter_Click(System::Object^  sender, System::EventArgs^  e);
 
-	}
-	private: System::Void AppendLetterToTextbox(String^ characterToAppend) {
-				clock_t startTime = clock();
-				 
-				if (capsLockOn)
-				{
-					characterToAppend = characterToAppend -> ToUpper();
-				}
-				if (shiftOn) {
-					if (characterToAppend -> Equals(characterToAppend -> ToUpper())) {
-						characterToAppend = characterToAppend -> ToLower();
-					}
-					else {
-						characterToAppend = characterToAppend -> ToUpper();
-					}
-					shiftOn = false;
-					UpdateKeyAppearances();
-				}
-				inputBox -> AppendText(characterToAppend);
-
-				RevealCursor(startTime);
-	}
-	private: System::Void AppendNumberSymbolToTextbox(char upperToAppend, char lowerToAppend) {
-			 clock_t startTime = clock();
-				 
-			 if (shiftOn) {
-				 shiftOn = false;
-				 UpdateKeyAppearances();
-				 inputBox -> AppendText(gcnew String(upperToAppend, 1));
-			 }
-			 else {
-				 inputBox -> AppendText(gcnew String(lowerToAppend, 1));
-			 }
-
-			 RevealCursor(startTime);
-	}
-	private: System::Void RevealCursor(clock_t startTime) {
-			 clock_t endTime = clock();
-			 while ((double)(endTime - startTime) < (double)CLOCKS_PER_SEC / 4) {
-				 endTime = clock();
-				 //Hurry up and wait.
-			 }
-			 CustomShowMouse();
-	}
-	private: System::Void Key_MouseDown(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {
-			 CustomHideMouse();
-	}
-	private: System::Void Key_MouseLeave(System::Object^  sender, System::EventArgs^  e) {
-			 if (!cursorShown) {
-				 CustomShowMouse();
-			 }
-	}
-	private: System::Void Key_MouseEnter(System::Object^  sender, System::EventArgs^  e) { //Remove this later.
-	}
-	private: System::Void CustomShowMouse() {
-			 if (!cursorShown) {
-				 Cursor -> Show();
-				 cursorShown = true;
-			 }
-	}
-	private: System::Void CustomHideMouse() {
-			 if (cursorShown) {
-				 Cursor -> Hide();
-				 cursorShown = false;
-			 }
-	}
-	private: System::Void vKeyEnter_Click(System::Object^  sender, System::EventArgs^  e) {
-			//return textbox text and close form.
-	}
-};
+	public:
+		String^ getReturnString();
+	};
 }
 
 
